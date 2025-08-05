@@ -8,12 +8,13 @@
 
 /* Begin PBXFileReference section */
 		BAEF34EB2E429E3A00D8ED0B /* BudgetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAEF34FF2E42A15000D8ED0B /* BudgetTracker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BudgetTracker.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		BAEF34ED2E429E3A00D8ED0B /* BudgetTracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BudgetTracker;
+			name = BudgetTracker;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -42,6 +43,11 @@
 			children = (
 				BAEF34EB2E429E3A00D8ED0B /* BudgetTracker.app */,
 			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAEF35022E42A15000D8ED0B /* Products */ = {
+			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -97,6 +103,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BAEF34EC2E429E3A00D8ED0B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BAEF35022E42A15000D8ED0B /* Products */;
+					ProjectRef = BAEF34FF2E42A15000D8ED0B /* BudgetTracker.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BAEF34EA2E429E3A00D8ED0B /* BudgetTracker */,
@@ -251,7 +263,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BudgetTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "$(SRCROOT)";
 				DEVELOPMENT_TEAM = M4AN86ZBTV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -280,7 +292,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BudgetTracker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "$(SRCROOT)";
 				DEVELOPMENT_TEAM = M4AN86ZBTV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
