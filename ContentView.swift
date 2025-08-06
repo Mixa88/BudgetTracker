@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @State private var selectedCategory: Category?
+    @State private var showingAddScreen = false
+    
+    @Query(sort: \Category.name) var allCategories: [Category]
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,4 +27,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: [Category.self, Expense.self], inMemory: true)
 }
