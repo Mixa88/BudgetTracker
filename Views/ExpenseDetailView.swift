@@ -108,7 +108,7 @@ private struct DetailPreviewContainer: View {
             container.mainContext.insert(sampleCategory)
             container.mainContext.insert(sampleExpense)
             
-            container.mainContext.insert(sampleExpense)
+        
             
             self.result = .success((sampleExpense, container))
         } catch {

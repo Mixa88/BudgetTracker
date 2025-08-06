@@ -30,21 +30,35 @@ struct FilteredExpenseListView: View {
     }
     
     var body: some View {
-        ForEach(expenses) { expense in
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(expense.note.isEmpty ? "Expense" : expense.note)
-                        .font(.headline)
-                    
-                    if let categoryName = expense.category?.name {
-                        Text(categoryName)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+        List {
+            ForEach(expenses) { expense in
+                NavigationLink(value: expense) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(expense.note.isEmpty ? "Expense" : expense.note)
+                                .font(.headline)
+                            
+                            if let categoryName = expense.category?.name {
+                                Text(categoryName)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        Spacer()
+                        Text(expense.amount, format: .currency(code: "USD"))
                     }
                 }
-                Spacer()
-                Text(expense.amount, format: .currency(code: "USD"))
             }
+            .onDelete(perform: deleteExpenses)
+        }
+    }
+    
+    @Environment(\.modelContext) var modelContext
+    
+    func deleteExpenses(at offsets: IndexSet) {
+        for offset in offsets {
+            let entry = expenses[offset]
+            modelContext.delete(entry)
         }
     }
 }
