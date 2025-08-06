@@ -13,17 +13,20 @@ struct FilteredExpenseListView: View {
     
     init(selectedCategory: Category?, sortOrder: SortDescriptor<Expense>) {
         let predicate: Predicate<Expense>?
+        
         if let category = selectedCategory {
-            predicate = #Predicate<Expense> { expense in
-                expense.category?.id == category.id
+            // Сохраняем ID в отдельную переменную, чтобы предикат его "захватил"
+            let categoryID = category.id
             
+            predicate = #Predicate<Expense> { expense in
+                // Сравниваем опциональный ID расхода с нашим сохраненным ID
+                expense.category?.id == categoryID
             }
         } else {
             predicate = nil
         }
         
         _expenses = Query(filter: predicate, sort: [sortOrder])
-        
     }
     
     var body: some View {
