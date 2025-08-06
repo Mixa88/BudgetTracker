@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		BA9275A12E43D37900B41A5A /* BudgetTracker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BudgetTracker.xcodeproj; sourceTree = "<group>"; };
 		BAEF34EB2E429E3A00D8ED0B /* BudgetTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEF34FF2E42A15000D8ED0B /* BudgetTracker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = BudgetTracker.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -30,6 +31,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA9275A42E43D37900B41A5A /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BAEF34E22E429E3A00D8ED0B = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +110,10 @@
 			productRefGroup = BAEF34EC2E429E3A00D8ED0B /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = BA9275A42E43D37900B41A5A /* Products */;
+					ProjectRef = BA9275A12E43D37900B41A5A /* BudgetTracker.xcodeproj */;
+				},
 				{
 					ProductGroup = BAEF35022E42A15000D8ED0B /* Products */;
 					ProjectRef = BAEF34FF2E42A15000D8ED0B /* BudgetTracker.xcodeproj */;
