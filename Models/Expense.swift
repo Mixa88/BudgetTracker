@@ -15,7 +15,7 @@ class Expense {
     var note: String
     var date: Date
     
-    @Relationship(deleteRule: .nullify, inverse: \Category.expenses)
+    @Relationship(deleteRule: .cascade, inverse: \Category.expenses)
     var category: Category?
     
     init(id: UUID = UUID(), amount: Double, note: String, date: Date) {

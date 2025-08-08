@@ -13,6 +13,7 @@ struct BudgetTrackerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .tint(.green)
         }
         .modelContainer(for: [Expense.self, Category.self])
     }

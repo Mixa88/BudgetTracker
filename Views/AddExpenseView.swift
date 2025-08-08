@@ -23,7 +23,7 @@ struct AddExpenseView: View {
     
     var formIsValid: Bool {
         
-        let isAmountValid = !amount.isZero
+        let isAmountValid = amount > 0.01
         
         let isCategoryValid = selectedCategory != nil || !newCategoryName.trimmingCharacters(in: .whitespaces).isEmpty
         
@@ -49,9 +49,13 @@ struct AddExpenseView: View {
                         }
                     }
                     
-                    TextField("Or add a new category", text: $newCategoryName) {
+                    TextField("Or add a new category", text: $newCategoryName)
                         
+                    Button("Добавить категорию") {
+                        addNewCategory()
                     }
+                    .disabled(newCategoryName.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
                 
                 Section {
@@ -60,6 +64,7 @@ struct AddExpenseView: View {
                         dismiss()
                     }
                     .disabled(!formIsValid)
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             .onSubmit(addNewCategory)
