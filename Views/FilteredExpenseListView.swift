@@ -45,7 +45,7 @@ struct FilteredExpenseListView: View {
                             }
                         }
                         Spacer()
-                        Text(expense.amount, format: .currency(code: "USD"))
+                        Text(expense.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                     }
                 }
             }

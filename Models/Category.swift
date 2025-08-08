@@ -16,8 +16,14 @@ class Category {
     var id = UUID()
     var expenses: [Expense] = []
     
+    
+    
     init(name: String) {
         self.name = name
+    }
+    
+    var totalAmount: Double {
+        expenses.reduce(0) { $0 + $1.amount }
     }
     
 

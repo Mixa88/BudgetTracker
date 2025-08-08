@@ -15,7 +15,7 @@ struct ContentView: View {
     
     @State private var selectedCategory: Category?
     
-    @State private var showingAddScreen = false
+    @State private var activeSheet: ActiveSheet?
 
     var body: some View {
         NavigationStack {
@@ -30,7 +30,13 @@ struct ContentView: View {
                     // Кнопка для добавления нового расхода
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Add Expense", systemImage: "plus") {
-                            showingAddScreen.toggle()
+                            activeSheet = .addExpense
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Categories", systemImage: "folder") {
+                            activeSheet = .categories
                         }
                     }
                     
@@ -71,10 +77,25 @@ struct ContentView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $showingAddScreen) {
-                    AddExpenseView()
-                }
+                .sheet(item: $activeSheet) { sheet in
+                                    switch sheet {
+                                    case .addExpense:
+                                        AddExpenseView()
+                                    case .categories:
+                                        CategoriesView()
+                                    }
+                                }
         }
+    }
+}
+
+enum ActiveSheet: Identifiable {
+    case addExpense
+    case categories
+    
+    // Это нужно, чтобы enum можно было использовать с .sheet(item:...)
+    var id: Self {
+        self
     }
 }
 
