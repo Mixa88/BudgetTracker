@@ -12,6 +12,7 @@ struct CategoriesView: View {
     @Query(sort: \Category.name) private var allCategories: [Category]
     
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -25,8 +26,23 @@ struct CategoriesView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
+                .onDelete(perform: deleteCategory)
             }
             .navigationTitle("Categories 🗂️")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteCategory(at offsets: IndexSet) {
+        for offset in offsets {
+          let category = allCategories[offset]
+            modelContext.delete(category)
         }
     }
 }
