@@ -23,7 +23,7 @@ struct ExpenseDetailView: View {
                 
                 VStack {
                     Text("Amount")
-                    Text(expense.amount, format: .currency(code: "USD"))
+                    Text(expense.amount, format: .currency(code: Locale.current.currency?.identifier ?? "UAH"))
                         .font(.system(size: 44, weight: .bold, design: .rounded))
                 }
                 .frame(maxWidth: .infinity)
